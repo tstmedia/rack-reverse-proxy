@@ -74,6 +74,8 @@ module Rack
         response_headers['location'] = response_location.to_s
       end
 
+      response_headers['X-test-header']=source_request.host
+
       [target_response.status, response_headers, target_response.body]
     end
 
