@@ -74,7 +74,6 @@ module Rack
         response_headers['location'] = response_location.to_s
       end
 
-      response_headers['location'] = "test.com"
       [target_response.status, response_headers, target_response.body]
     end
 
