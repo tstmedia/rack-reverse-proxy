@@ -76,7 +76,8 @@ module Rack
       end
 
       response_headers['X-location'] = response_headers['location']
-      response_headers['X-location_bool'] = response_headers['location'] && options[:replace_response_host]
+      response_headers['X-location_bool'] = options[:replace_response_host]
+
       [target_response.status, response_headers, target_response.body]
     end
 
