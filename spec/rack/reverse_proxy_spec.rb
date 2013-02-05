@@ -103,10 +103,10 @@ describe Rack::ReverseProxy do
       end
 
       it "should replace the location response header" do
-        stub_request(:get, "http://example.com/test/stuff").to_return(:headers => {"Location" => "http://test.com/bar"})
+        stub_request(:get, "http://example.com/test/stuff").to_return(:headers => {"location" => "http://test.com/bar"})
         get '/test/stuff'
         # puts last_response.headers.inspect
-        last_response.headers['Location'].should == "http://example.com/bar"
+        last_response.headers['location'].should == "http://example.com/bar"
       end
     end
 
