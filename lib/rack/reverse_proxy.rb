@@ -70,14 +70,12 @@ module Rack
       # Replace the location header with the proxy domain
       if response_headers['location'] && options[:replace_response_host]
         response_location = URI(response_headers['location'])
-        response_location.host = source_request.host
-        response_headers.delete('location')
+        response_location.host = uri.host
         response_headers['location'] = response_location.to_s
       end
 
       response_headers['X-location'] = response_headers['location']
-      response_headers['X-location_bool'] = options[:replace_response_host]
-
+      response_headers['location'] = "test"
       [target_response.status, response_headers, target_response.body]
     end
 
